@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #3200c1;
+  --cyan: #37ffdb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #343a40;
+  background-color: #ffffff;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white font-bold py-2 px-5 rounded-lg hover:bg-primary-dark transition-colors duration-200;
+  }
+
+  .btn-cyan {
+    @apply bg-[#37ffdb] text-[#3200c1] font-bold py-2 px-5 rounded-lg hover:opacity-90 transition-opacity duration-200;
+  }
+
+  .property-card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer;
+  }
+
+  .tag {
+    @apply text-xs font-bold px-2 py-1 rounded-full;
+  }
+}
