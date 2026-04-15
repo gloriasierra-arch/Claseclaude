@@ -90,7 +90,7 @@ export default function Hero() {
             { value: "6 sectores", label: "En Coquimbo" },
           ].map((stat) => (
             <div key={stat.label}>
-              <p className="font-extrabold text-lg md:text-2xl text-[#37ffdb]">{stat.value}</p>
+              <p className="text-[#37ffdb] font-extrabold text-lg md:text-2xl">{stat.value}</p>
               <p className="text-white/70 text-xs md:text-sm">{stat.label}</p>
             </div>
           ))}
