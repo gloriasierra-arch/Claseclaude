@@ -4,19 +4,30 @@ import { useState } from "react";
 export default function Hero() {
   const [search, setSearch] = useState("");
   const [tipo, setTipo] = useState("todos");
+  const [hovered, setHovered] = useState(false);
+
+  const cyan = hovered ? "#3200c1" : "#37ffdb";
 
   return (
-    <section className="relative bg-primary overflow-hidden">
+    <section
+      className="relative overflow-hidden transition-colors duration-500"
+      style={{ backgroundColor: hovered ? "#F37C9F" : "#3200c1" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#37ffdb] -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#37ffdb] translate-y-1/2 -translate-x-1/4" />
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full -translate-y-1/2 translate-x-1/3 transition-colors duration-500" style={{ backgroundColor: cyan }} />
+        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full translate-y-1/2 -translate-x-1/4 transition-colors duration-500" style={{ backgroundColor: cyan }} />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 py-16 md:py-24">
         <div className="max-w-3xl">
           {/* Badge */}
-          <span className="inline-flex items-center gap-2 bg-[#37ffdb] text-primary font-bold text-xs px-3 py-1 rounded-full mb-4">
+          <span
+            className="inline-flex items-center gap-2 font-bold text-xs px-3 py-1 rounded-full mb-4 transition-colors duration-500"
+            style={{ backgroundColor: cyan, color: hovered ? "#ffffff" : "#3200c1" }}
+          >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
             </svg>
@@ -25,7 +36,7 @@ export default function Hero() {
 
           <h1 className="text-white font-extrabold text-3xl md:text-5xl leading-tight mb-4">
             Encuentra tu departamento<br />
-            <span className="text-[#37ffdb]">barato en Coquimbo</span>
+            <span className="transition-colors duration-500" style={{ color: cyan }}>barato en Coquimbo</span>
           </h1>
           <p className="text-white/80 text-base md:text-lg mb-8 max-w-xl">
             Más de 120 departamentos disponibles con subsidio habitacional, financiamiento y excelente ubicación en la IV Región.
@@ -90,7 +101,7 @@ export default function Hero() {
             { value: "6 sectores", label: "En Coquimbo" },
           ].map((stat) => (
             <div key={stat.label}>
-              <p className="text-[#37ffdb] font-extrabold text-lg md:text-2xl">{stat.value}</p>
+              <p className="font-extrabold text-lg md:text-2xl transition-colors duration-500" style={{ color: cyan }}>{stat.value}</p>
               <p className="text-white/70 text-xs md:text-sm">{stat.label}</p>
             </div>
           ))}
